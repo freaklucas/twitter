@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="flex container h-screen w-full">
+    <!--side nav -->  
+    <div clas="w-1/5 border-r border-lighter px-8 py-2">
+      <button class="h-12 w-12 px-20 hover:bg-lightblue text-3xl rounded-full text-blue">
+        <icon name="twitter-brand" />
+      </button>
+      <div>
+        <button class="flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto">
+          <icon name="twitter-home" />
+        </button>
+      </div>
+      <div>
+        <button class="flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto">
+          <icon name="twitter-busca" />
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Icon from './components/Icon'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Icon
+  },
+  data() {
+    return {
+
+    }
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
