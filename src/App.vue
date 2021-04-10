@@ -1,32 +1,19 @@
 <template>
-  <div id="app" class="flex container h-screen w-full">
-    <!--side nav -->  
-    <div clas="w-1/5 border-r border-lighter px-8 py-2">
-      <button class="h-12 w-12 px-20 hover:bg-lightblue text-3xl rounded-full text-blue">
-        <icon name="twitter-brand" />
-      </button>
-      <div>
-        <button class="flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto">
-          <icon name="twitter-home" />
-        </button>
-      </div>
-      <div>
-        <button class="flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto">
-          <icon name="twitter-busca" />
-        </button>
-      </div>
+  <div id="app" class="flex container h-screen w-full border-r border-lighter">
+    <div class=" w-1/4 border-r border-lighter px-8 py-2">
+    <side-bar />
     </div>
   </div>
 </template>
 
 <script>
-import Icon from './components/Icon'
 
+import SideBar from './components/SideBar'
 
 export default {
   name: 'App',
   components: {
-    Icon
+    SideBar
   },
   data() {
     return {
@@ -36,5 +23,3 @@ export default {
 }
 </script>
 
-<style>
-</style>
