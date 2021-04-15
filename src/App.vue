@@ -1,17 +1,47 @@
 <template>
   <div id="app" class="flex container h-screen w-full">
-    <div class=" w-1/5 border-r border-lighter px-8 py-2">
-      <button class="focus:outline-none h-12 w-12 hover:bg-lightblue text-3xl  rounded-full text-blue">
-        <i class="fab fa-twitter"></i>
-      </button>
+    <div class=" w-1/5 border-r border-lighter px-8 py-2 flex flex-col justify-between">
       <div>
-        <button v-for="tab in tabs" @click="id = tab.id" 
-          :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 
-          hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`"
-        >
-          <i :class="`${tab.icon}  text-2xl mr-4 text-left `"></i>
-          <p class="text-lg font-semibold text-left">{{ tab.title }}</p>
+        <button class="focus:outline-none h-12 w-12 hover:bg-lightblue text-3xl  rounded-full text-blue">
+          <i class="fab fa-twitter"></i>
         </button>
+        <div>
+          <button v-for="tab in tabs" @click="id = tab.id" :key="tab.id"
+            :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 
+            hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`"
+          >
+            <i :class="`${tab.icon}  text-2xl mr-4 text-left `"></i>
+            <p class="text-lg font-semibold text-left">{{ tab.title }}</p>
+          </button>
+          <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-full p-3 hover:bg-darkblue">
+            Tweet
+          </button>
+        </div>
+      </div>
+      <div class="w-full relative">
+        <button @click="dropdown = true"  class="flex items-center w-full hover:bg-lightblue rounded-full p-2 focus:outline-none">
+          <img src="../src/assets/images/profile.png" class="w-12 h-12 rounded-full border-lighter"/>
+          <div class="ml-4">
+            <p class="text-sm font-bold leading-tight">William Bonner</p>
+            <p class="text-sm leading-tight">@williambonner</p>
+          </div>
+        </button>
+        <div v-if="dropdown === true" class="absolute bottom-0 left-0 w-64 rounded-lg shadow-md border-lightest bg-white mb-16">
+          <button @click="dropdown = false"  class="p-3 flex items-center w-full hover:bg-lightest  p-2 focus:outline-none">
+          <img src="../src/assets/images/profile.png" class="w-12 h-12 rounded-full border-lighter"/>
+          <div class="ml-4">
+            <p class="text-sm font-bold leading-tight">William Bonner</p>
+            <p class="text-sm leading-tight">@williambonner</p>
+          </div>
+          <i class="fas fa-check ml-auto test-blue"></i>
+        </button>
+        <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
+          Adicione uma conta existente
+        </button>
+        <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
+          Entre como @williambonner
+        </button>
+        </div>
       </div>
     </div>
   </div>
@@ -34,7 +64,8 @@ export default {
         { icon: 'fas fa-user', title: 'Perfil', id: 'profile' },
         { icon: 'fas fa-ellipsis-h', title: 'Mais', id: 'more' },
       ],
-      id: 'home'
+      id: 'home',
+      dropdown: false,
     }
   },
 }
