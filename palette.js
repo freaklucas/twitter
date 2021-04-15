@@ -6,7 +6,8 @@ module.exports = {
     success: '#63C3BE',
     graydark: '#C0BCB0',
     warning: '#E4B52E',
-    danger: '#F88676'
+    danger: '#F88676',
+    lightblue: '#EFF9FF'
   },
   mediumslateblue: {
     50: '#f6f9fd',
