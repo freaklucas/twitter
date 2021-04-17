@@ -1,10 +1,5 @@
 <template>
-  <div id="app" class="flex container h-screen w-full">
-    <side-bar/>
-    <div class="w-1/2 h-full">
-
-    </div>
-    <div class="md:block hidden w-1/3 h-full border-l border-lighter py-2 px-6 overflow-y-scroll relative">
+        <div class="md:block hidden w-1/3 h-full border-l border-lighter py-2 px-6 overflow-y-scroll relative">
       <input class="pl-10 rounded-full w-full p-2 bg-lighter text-sm focus:outline-none" placeholder="Buscar no twitter" />
       <i class="fas fa-search absolute left-0 top-0 mt-4 ml-9 text-sm text-light"></i>
       <div class="w-full rounded-lg bg-lightest p-3 mt-4">
@@ -29,38 +24,11 @@
           Mostrar mais
         </button> 
       </div>
-      <div class="w-full rounded-lg bg-lightest my-4">
-        <div class="p-3">
-          <p class="text-lg font-bold">Quem seguir</p>
-        </div>
-        <button v-for="friend in friends" :key="friend"
-          class="w-full flex hover:bg-lighter 
-            p-3 border-t border-lighter focus:outline-none"
-        >
-        <img :src="require(`../src/assets/images/${friend.src}`)" class="w-12 h-12 rounded-full border-lighter"/>
-          <div class="hidden lg:block ml-4">
-            <p class="text-sm font-bold leading-tight">{{ friend.name }}</p>
-            <p class="text-sm leading-tight">{{ friend.handle }}</p>
-          </div>
-          <button class="ml-auto text-sm text-blue py-1 mb-6 px-4 rounded-full border-2 border-blue focus:outline-none">
-            Seguir
-          </button>
-        </button>
-        <button class="p-3 w-full hover:bg-lighter text-left text-blue 
-          border-t border lighter focus:outline-none"
-        >
-          Mostrar mais
-        </button>
-      </div>  
     </div>
-  </div>
 </template>
 
 <script>
-import SideBar from './components/SideBar'
 export default {
-  name: 'App',
-  components: { SideBar },
   data() {
     return {
       trending: [
@@ -69,14 +37,8 @@ export default {
         { top: 'Covid-19 . AO VIVO', title: 'Goiás: as últimas notícias sobre a pandemia', bottom: '' },
         { top: 'Paulista, Serie A1 AO VIVO', title: 'Palmeiras x São Paulo', bottom: 'Assuntos do Momento: Daniel Alves' },
         { top: 'Big Brother Brasil . Assunto do momento', title: 'Juliette e Camila', bottom: '14,1 mil Tweets' },
-      ],
-      friends : [
-        { src: 'fausto.png', name: 'Fausto Silva', handle: '@faustosilva' },
-        { src: 'supla.png', name: 'Supla', handle: '@Sulpla' },
-        { src: 'tiririca.png', name: 'Tiririca sem sobrenome', handle: '@tiririca' },
       ]
     }
   }
 }
 </script>
-
