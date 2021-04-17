@@ -1,75 +1,82 @@
 <template>
   <div id="app" class="flex container h-screen w-full">
-    <div class="lg:w-1/5 border-r border-lighter lpx-2 lg:px-8 py-2 flex flex-col justify-between">
-      <div>
-        <button class="focus:outline-none h-12 w-12 hover:bg-lightblue text-3xl  rounded-full text-blue">
-          <i class="fab fa-twitter"></i>
-        </button>
-        <div>
-          <button v-for="tab in tabs" @click="id = tab.id" :key="tab.id"
-            :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 
-            hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`"
-          >
-            <i :class="`${tab.icon}  text-2xl mr-4 text-left `"></i>
-            <p class="text-lg font-semibold text-left">{{ tab.title }}</p>
-          </button>
-          <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3 hover:bg-darkblue">
-            <p class="hidden lg:block">Tweetar</p>
-            <i class="fas fa-plus lg:hidden"></i>
-          </button>
+    <side-bar/>
+    <div class="w-1/2 h-full">
+
+    </div>
+    <div class="w-1/3 h-full border-l border-lighter py-2 px-6 overflow-y-scroll relative">
+      <input class="pl-10 rounded-full w-full p-2 bg-lighter text-sm focus:outline-none" placeholder="Buscar no twitter" />
+      <i class="fas fa-search absolute left-0 top-0 mt-4 ml-9 text-sm text-light"></i>
+      <div class="w-full rounded-lg bg-lightest p-3 mt-4">
+        <div class="flex items-center justify-between p-3">
+          <p class="text-lg font-bold">O que está acontecendo</p>
+          <i class="fas fa-cog text-lg text-blue"></i>
         </div>
+        <button v-for="trend in trending" :key="trend" 
+          class="w-full flex justify-between hover:bg-lighter 
+            p-3 border-t border-lighter focus:outline-none"
+        >
+          <div class="">
+            <p class="text-sm text-left leading-tight text-dark rounded-full">{{ trend.top }}</p>
+            <p class="font-bold text-left leading-tight">{{ trend.title }}</p>
+            <p class="text-left leading-tight text-dark">{{ trend.bottom }}</p>
+          </div>
+          <i class="fas fa-angle-down text-lg text-dark"></i>
+        </button>
+        <button class="p-3 w-full hover:bg-lighter text-left text-blue 
+          border-t border lighter focus:outline-none"
+        >
+          Mostrar mais
+        </button> 
       </div>
-      <div class="lg:w-full relative">
-        <button @click="dropdown = true"  class="flex items-center w-full hover:bg-lightblue rounded-full p-2 focus:outline-none">
-          <img src="../src/assets/images/profile.png" class="w-12 h-12 rounded-full border-lighter"/>
+      <div class="w-full rounded-lg bg-lightest p-3 mt-4">
+        <div class="p-3">
+          <p class="text-lg font-bold">Quem seguir</p>
+        </div>
+        <button v-for="friend in friends" :key="friend"
+          class="w-full flex hover:bg-lighter 
+            p-3 border-t border-lighter focus:outline-none"
+        >
+        <img :src="`${friend.src}`" class="w-12 h-12 rounded-full border-lighter"/>
           <div class="hidden lg:block ml-4">
-            <p class="text-sm font-bold leading-tight">William Bonner</p>
-            <p class="text-sm leading-tight">@williambonner</p>
+            <p class="text-sm font-bold leading-tight">{{ friend.name }}</p>
+            <p class="text-sm leading-tight">{{ friend.handle }}</p>
           </div>
-          <i class="hidden lg:block fas fa-angle-down ml-auto text-lg"></i>
+          <button class="ml-auto text-sm text-blue py-2 px-4 rounded-full border-2 border-blue">
+            Seguir
+          </button>
         </button>
-        <div v-if="dropdown === true" class="absolute bottom-0 left-0 w-64 rounded-lg shadow-md border-lightest bg-white mb-16">
-          <button @click="dropdown = false"  class="p-3 flex items-center w-full hover:bg-lightest  p-2 focus:outline-none">
-          <img src="../src/assets/images/profile.png" class="w-12 h-12 rounded-full border-lighter"/>
-          <div class="ml-4">
-            <p class="text-sm font-bold leading-tight">William Bonner</p>
-            <p class="text-sm leading-tight">@williambonner</p>
-          </div>
-          <i class="fas fa-check ml-auto test-blue"></i>
-        </button>
-        <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
-          Adicionar uma conta existente
-        </button>
-        <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
-          Sair de @williambonner
-        </button>
-        </div>
-      </div>
+        <button class="p-3 w-full hover:bg-lighter text-left text-blue 
+          border-t border lighter focus:outline-none"
+        >
+          Mostrar mais
+        </button> 
+      </div>  
     </div>
   </div>
 </template>
 
 <script>
-
+import SideBar from './components/SideBar'
 export default {
   name: 'App',
-  components: {},
+  components: { SideBar },
   data() {
     return {
-      tabs: [
-        { icon: 'fas fa-home', title: 'Página inicial', id: 'home' },
-        { icon: 'fas fa-hashtag', title: 'Explorar', id: 'explore' },
-        { icon: 'fas fa-bell', title: 'Notificações', id: 'notifications' },
-        { icon: 'fas fa-envelope', title: 'Mensagens', id: 'messages' },
-        { icon: 'fas fa-bookmark', title: 'Itens salvos', id: 'bookmarks' },
-        { icon: 'fas fa-clipboard-list', title: 'Listas', id: 'lists' },
-        { icon: 'fas fa-user', title: 'Perfil', id: 'profile' },
-        { icon: 'fas fa-ellipsis-h', title: 'Mais', id: 'more' },
+      trending: [
+        { top: 'Tecnologia - Assunto do momento', title: 'Até o Twitter', bottom: '83,7 mil Tweets' },
+        { top: 'Programas de ficção científica & fantasia', title: 'Falcão', bottom: '19,4 mil Tweets' },
+        { top: 'Covid-19 . AO VIVO', title: 'Goiás: as últimas notícias sobre a pandemia', bottom: '' },
+        { top: 'Paulista, Serie A1 AO VIVO', title: 'Palmeiras x São Paulo', bottom: 'Assuntos do Momento: Daniel Alves' },
+        { top: 'Big Brother Brasil . Assunto do momento', title: 'Juliette e Camila', bottom: '14,1 mil Tweets' },
       ],
-      id: 'home',
-      dropdown: false,
+      friends : [
+        { src: 'fausto.png', name: 'Fausto Silva', handle: '@faustosilva' },
+        { src: 'supla.png', name: 'Supla', handle: '@Sulpla' },
+        { src: 'tiririca.png', name: 'Tiririca sem sobrenome', handle: '@tiririca' },
+      ]
     }
-  },
+  }
 }
 </script>
 
