@@ -1,5 +1,5 @@
 <template>
-        <div class="md:block hidden w-1/3 h-full border-l border-lighter py-2 px-6 overflow-y-scroll relative">
+    <div>
       <input class="pl-10 rounded-full w-full p-2 bg-lighter text-sm focus:outline-none" placeholder="Buscar no twitter" />
       <i class="fas fa-search absolute left-0 top-0 mt-4 ml-9 text-sm text-light"></i>
       <div class="w-full rounded-lg bg-lightest p-3 mt-4">
