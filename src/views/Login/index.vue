@@ -3,7 +3,7 @@
         <div class="flex flex-row">
             <div class="flex lg:w-3/5 w-full flex-row md:w-1/2">
                 <div class="flex flex-col md:flex-row h-screen">
-                    <img src="../../../src/assets/images/login.png" alt="imagem do twitter" class="">
+                    <img src="../../../src/assets/images/twitter.png" alt="imagem do twitter" class="">
                 </div>
             </div>
             <div class="flex flex-col justify-center lg:w-3/5 w-full md:w-1/2">
@@ -12,8 +12,8 @@
                         <i class="fab fa-twitter h-30"></i>
                     </button>
                 </div>
-                <h1 class="font-extrabold text-7xl mb-1 mt-1 ml-11 p-6 md:text-5xl">Acontecendo agora</h1>
-                <h2 class="font-bold text-3xl ml-11 p-6">Inscreva-se no twitter hoje mesmo.</h2>
+                <h1 class="font-extrabold text-7xl align-text-middle mb-1 mt-1 ml-11 p-6 md:text-5xl">Acontecendo agora</h1>
+                <h2 class="font-bold text-3xl align-text-middle ml-11 p-6">Inscreva-se no twitter hoje mesmo.</h2>
                 <div class="container ml-12 px-9 h-12 mb-7">
                     <button class="px-8 py-5 text-2xl text-center h-15 w-4/6 font-bold rounded-full bg-blue hover:shadow focus:outline-none ">Inscrever-se</button>
                 </div>
@@ -22,15 +22,23 @@
                 </div>
             </div>
         </div>
-        <div>
-            <p>Sobre</p>
-            <p>Central de Ajuda</p>
-            <p>Termos de Serviço</p>
-            <p>Política de Privacidade</p>
-            <p>Política de cookies</p>
-            <p>Informações de anúncios</p>
-            <p>Blog</p>
-            <p>Carreiras</p>
+        <div class="font-serif inline-block align-text-middle text-center">
+            <p class="inline-block align-text-middle text-center">Sobre</p>
+            <p class="inline-block align-text-middle text-center ml-5">Central de Ajuda</p>
+            <p class="inline-block align-text-middle text-center ml-5">Termos de Serviço</p>
+            <p class="inline-block align-text-middle text-center ml-5">Política de Privacidade</p>
+            <p class="inline-block align-text-middle text-center ml-5">Política de cookies</p>
+            <p class="inline-block align-text-middle text-center ml-5">Informações de anúncios</p>
+            <p class="inline-block align-text-middle text-center ml-5">Blog</p>
+            <p class="inline-block align-text-middle text-center ml-5">Carreiras</p>
+            <p class="inline-block align-text-middle text-center ml-5">Recursos da marca</p>
+            <p class="inline-block align-text-middle text-center ml-5">Publicidade</p>
+            <p class="inline-block align-text-middle text-center ml-5">Marketing</p>
+            <p class="inline-block align-text-middle text-center ml-5">Twitter para empresas</p>
+            <p class="inline-block align-text-middle text-center ml-5">Desenvolvedores</p>
+            <p class="inline-block align-text-middle text-center ml-5">Diretório</p>
+            <p class="inline-block align-text-middle text-center ml-5">Configurações</p>
+
         </div>
     </div>
 </template>
