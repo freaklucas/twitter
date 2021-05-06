@@ -31,7 +31,7 @@ export default {
       friends : [
         { src: 'fausto.png', name: 'Fausto Silva', handle: '@faustosilva' },
         { src: 'supla.png', name: 'Supla', handle: '@Sulpla' },
-        { src: 'tiririca.png', name: 'Tiririca sem sobrenome', handle: '@tiririca' },
+        { src: 'tiririca.png', name: 'Tiririca', handle: '@tiririca' },
       ]
     }
   }
