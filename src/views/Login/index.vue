@@ -39,11 +39,12 @@
             <p class="inline-block align-text-middle text-center ml-5">Diretório</p>
             <p class="inline-block align-text-middle text-center ml-5">Configurações</p>
         </div>
+
     </div>
 </template>
 <script>
 export default {
-    
+
 }
 
 </script>

@@ -12,7 +12,7 @@
             <i :class="`${tab.icon}  text-2xl mr-1 text-left `"></i>
             <p class="text-lg font-semibold text-left hidden lg:block whitespace-nowrap">{{ tab.title }}</p>
           </button>
-          <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3 hover:bg-darkblue">
+          <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3 hover:bg-darkblue mb-8">
             <p class="hidden lg:block">Tweetar</p>
             <i class="fas fa-plus lg:hidden"></i>
           </button>
@@ -39,7 +39,7 @@
         <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
           Adicionar uma conta existente
         </button>
-        <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
+        <button  @click="()=> this.$router.push({name: 'Login'})" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
           Sair de @williambonner
         </button>
         </div>
@@ -49,7 +49,17 @@
 
 <script>
 
+// import Vue from 'vue'
+
 export default {
+  setup() {
+    // const router = useRouter()
+    
+  },
+  logout() {
+    this.$router.push({ name: '' })
+    // @click="() => this.$router.push({name: 'Home'})"
+  },
   components: {},
     data() {
     return {
@@ -65,6 +75,7 @@ export default {
       ],
       id: 'home',
       dropdown: false,
+      
     }
   },
 }
