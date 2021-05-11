@@ -6,10 +6,10 @@
         </button>
         <div>
           <button v-for="tab in tabs" @click="id = tab.id" :key="tab.id"
-            :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 
+            :class="`focus:outline-none hover:text-blue flex items-center py-2 px-3
             hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`"
           >
-            <i :class="`${tab.icon}  text-2xl mr-4 text-left `"></i>
+            <i :class="`${tab.icon}  text-2xl mr-1 text-left `"></i>
             <p class="text-lg font-semibold text-left hidden lg:block whitespace-nowrap">{{ tab.title }}</p>
           </button>
           <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3 hover:bg-darkblue">
