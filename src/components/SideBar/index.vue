@@ -12,7 +12,11 @@
             <i :class="`${tab.icon}  text-2xl mr-1 text-left `"></i>
             <p class="text-lg font-semibold text-left hidden lg:block whitespace-nowrap">{{ tab.title }}</p>
           </button>
-          <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3 hover:bg-darkblue mb-8">
+          <button class="text-white bg-blue rounded-full font-semibold 
+              focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
+             hover:bg-darkblue mb-8"
+             
+          >
             <p class="hidden lg:block">Tweetar</p>
             <i class="fas fa-plus lg:hidden"></i>
           </button>
@@ -27,7 +31,7 @@
           </div>
           <i class="hidden lg:block fas fa-angle-down ml-auto text-lg"></i>
         </button>
-        <div v-if="dropdown === true" class="absolute bottom-0 left-0 w-64 rounded-lg shadow-md border-lightest bg-white mb-16">
+        <div v-if="dropdown === true" class="absolute bottom-0 left-0 w-64 rounded-lg shadow-md border-lightest bg-white mb-12">
           <button @click="dropdown = false"  class="p-3 flex items-center w-full hover:bg-lightest  p-2 focus:outline-none">
           <img src="../../assets/images/profile.png" class="w-12 h-12 rounded-full border-lighter"/>
           <div class="ml-4">
@@ -49,17 +53,7 @@
 
 <script>
 
-// import Vue from 'vue'
-
-export default {
-  setup() {
-    // const router = useRouter()
-    
-  },
-  logout() {
-    this.$router.push({ name: '' })
-    // @click="() => this.$router.push({name: 'Home'})"
-  },
+export default {  
   components: {},
     data() {
     return {
