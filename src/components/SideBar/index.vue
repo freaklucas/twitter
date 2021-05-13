@@ -17,7 +17,9 @@
              hover:bg-darkblue mb-8"
              
           >
-            <p class="hidden lg:block">Tweetar</p>
+            <p class="hidden lg:block" @click="openModal">Tweetar</p>
+            <modal-factory v-model="modalOpen" />
+            
             <i class="fas fa-plus lg:hidden"></i>
           </button>
         </div>
@@ -43,7 +45,10 @@
         <button @click="dropdown = false" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
           Adicionar uma conta existente
         </button>
-        <button  @click="()=> this.$router.push({name: 'Login'})" class="w-full text-left hover:bg-lightest border-t border-lighter p-3 test-sm focus:outline-none">
+        <button  @click="()=> this.$router.push({name: 'Login'})" 
+          class="w-full text-left hover:bg-lightest border-t
+           border-lighter p-3 test-sm focus:outline-none"
+        >
           Sair de @williambonner
         </button>
         </div>
@@ -52,9 +57,9 @@
 </template>
 
 <script>
-
+import ModalFactory from '../ModalFactory'
 export default {  
-  components: {},
+  components: {ModalFactory},
     data() {
     return {
       tabs: [
@@ -69,9 +74,14 @@ export default {
       ],
       id: 'home',
       dropdown: false,
-      
+      modalOpen: false
     }
   },
+  methods: {
+    openModal() {
+      this.openModal = !this.openModal
+    }
+  }
 }
 </script>
 
