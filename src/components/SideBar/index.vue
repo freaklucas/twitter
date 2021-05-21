@@ -1,4 +1,4 @@
-<template>
+<template v-slot:body>
     <div class="lg:w-1/5 border-r border-lighter lpx-2 lg:px-8 py-2 flex flex-col justify-between">
       <div>
         <button class="focus:outline-none h-12 w-12 hover:bg-lightblue text-3xl  rounded-full text-blue">
@@ -12,16 +12,21 @@
             <i :class="`${tab.icon}  text-2xl mr-1 text-left `"></i>
             <p class="text-lg font-semibold text-left hidden lg:block whitespace-nowrap">{{ tab.title }}</p>
           </button>
-          <button class="text-white bg-blue rounded-full font-semibold 
-              focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
-             hover:bg-darkblue mb-8"
-             
-          >
-            <p class="hidden lg:block" @click="openModal">Tweetar</p>
-            <modal-factory v-model="modalOpen" />
-            
-            <i class="fas fa-plus lg:hidden"></i>
-          </button>
+          <div>
+            <button class="text-white bg-blue rounded-full font-semibold 
+                focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
+              hover:bg-darkblue mb-8"
+              id="show-modal" @click="showModal = true"
+            >
+              <modal v-if="showModal" @close="showModal = false">
+                <h3 slot="header">Custom Header</h3>
+              </modal>
+              <p class="hidden lg:block" >Tweetar</p>
+              <modal-factory v-model="modalOpen" />
+              
+              <i class="fas fa-plus lg:hidden"></i>
+            </button>
+          </div>
         </div>
       </div>
       <div class="lg:w-full relative">
@@ -74,14 +79,11 @@ export default {
       ],
       id: 'home',
       dropdown: false,
-      modalOpen: false
-    }
+      modalOpen: false,
+    },
+    showModal: false
   },
-  methods: {
-    openModal() {
-      this.openModal = !this.openModal
-    }
-  }
+
 }
 </script>
 
