@@ -12,21 +12,22 @@
             <i :class="`${tab.icon}  text-2xl mr-1 text-left `"></i>
             <p class="text-lg font-semibold text-left hidden lg:block whitespace-nowrap">{{ tab.title }}</p>
           </button>
-          <div>
-            <button class="text-white bg-blue rounded-full font-semibold 
-                focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
-              hover:bg-darkblue mb-8"
+          <div class="" id="div-conteudo-modal">
+            <button 
               id="show-modal" @click="showModal = true"
+              class="text-white bg-blue rounded-full font-semibold 
+                focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
+                hover:bg-darkblue mb-8"
             >
+            Show Modal
+            </button>
               <modal v-if="showModal" @close="showModal = false">
                 <h3 slot="header">Custom Header</h3>
               </modal>
+          </div>
               <p class="hidden lg:block" >Tweetar</p>
               <modal-factory v-model="modalOpen" />
-              
               <i class="fas fa-plus lg:hidden"></i>
-            </button>
-          </div>
         </div>
       </div>
       <div class="lg:w-full relative">
@@ -80,10 +81,9 @@ export default {
       id: 'home',
       dropdown: false,
       modalOpen: false,
-    },
-    showModal: false
-  },
-
+      showModal: false
+    }
+  }
 }
 </script>
 
