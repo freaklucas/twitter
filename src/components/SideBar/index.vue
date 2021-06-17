@@ -14,20 +14,19 @@
           </button>
           <div class="" id="div-conteudo-modal">
             <button 
-              id="show-modal" @click="showModal = true"
+              @click="toggleModal"
+              id="show-modal"
               class="text-white bg-blue rounded-full font-semibold 
                 focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
                 hover:bg-darkblue mb-8"
             >
-            Show Modal
+            Twittar
             </button>
-              <modal v-if="showModal" @close="showModal = false">
-                <h3 slot="header">Custom Header</h3>
-              </modal>
+            <modal-factory v-if="isShowModal" @close="toggleModal"/>
           </div>
-              <p class="hidden lg:block" >Tweetar</p>
+              <!-- <p class="hidden lg:block" >Tweetar</p>
               <modal-factory v-model="modalOpen" />
-              <i class="fas fa-plus lg:hidden"></i>
+              <i class="fas fa-plus lg:hidden"></i> -->
         </div>
       </div>
       <div class="lg:w-full relative">
@@ -79,9 +78,12 @@ export default {
         { icon: 'fas fa-ellipsis-h', title: 'Mais', id: 'more' },
       ],
       id: 'home',
-      dropdown: false,
-      modalOpen: false,
-      showModal: false
+      isShowModal: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.isShowModal = !this.isShowModal
     }
   }
 }
