@@ -23,6 +23,7 @@
             Twittar
             </button>
             <modal-factory v-if="isShowModal" @close="toggleModal"/>
+            <portal-target name="modal" />
           </div>
               <!-- <p class="hidden lg:block" >Tweetar</p>
               <modal-factory v-model="modalOpen" />
@@ -84,6 +85,9 @@ export default {
   methods: {
     toggleModal() {
       this.isShowModal = !this.isShowModal
+    },
+    handleClose() {
+      this.$emit("close")
     }
   }
 }
