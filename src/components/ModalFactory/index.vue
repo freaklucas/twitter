@@ -17,7 +17,9 @@
         <div class="sm:flex sm:items-start">
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
             <div class="flex items-center justify-between mb-4">
-              <button @click.prevent="handleClose">
+              <h2 class="">Teste de modal :)</h2>
+              <hr />
+              <button @click.prevent="handleClose" type="submit">
                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fill-rule="evenodd"
@@ -27,7 +29,7 @@
                 </svg>
               </button>
             </div>
-            <div>
+            <div class="open-modal">
                 <slot>
                   <publication />
                 </slot>
