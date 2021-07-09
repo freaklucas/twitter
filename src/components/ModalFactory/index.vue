@@ -3,9 +3,7 @@
     class="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-back bg-opacity-50"
   >
     <div class="fixed inset-0 transition-opacity">
-      <div
-        class="absolute inset-0 bg-gray-500 opacity-75"
-      ></div>
+      <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
     </div>
     <div
       class="z-10 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full"
@@ -30,9 +28,9 @@
               </button>
             </div>
             <div class="open-modal">
-                <slot>
-                  <publication />
-                </slot>
+              <slot>
+                <publication />
+              </slot>
             </div>
           </div>
         </div>
@@ -42,17 +40,16 @@
 </template>
 
 <script>
-
-import Publication from '../Publication'
+import Publication from "../Publication";
 
 export default {
   components: {
-    Publication
+    Publication,
   },
   methods: {
     handleClose() {
-      this.$emit("close")
-    }
-  }
-}
+      this.$emit('close');
+    },
+  },
+};
 </script>
