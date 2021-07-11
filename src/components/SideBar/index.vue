@@ -20,7 +20,7 @@
                 focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3
                 hover:bg-darkblue mb-8"
             >
-            Twittarrrr
+            Twittar(sidebar)
             </button>
             <modal-factory v-if="isShowModal" @close="toggleModal"/>
             <portal-target name="modal" />
@@ -63,9 +63,9 @@
 </template>
 
 <script>
-import ModalFactory from '../ModalFactory'
+
 export default {  
-  components: {ModalFactory},
+  components: {},
     data() {
     return {
       tabs: [
